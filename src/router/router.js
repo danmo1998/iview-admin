@@ -67,6 +67,18 @@ const routes = [
             name: '关于123'
         },
         props: true
+    },
+    {
+        path: '/cs',
+        name: 'cs1',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "about" */ '../views/ceshi.vue'),
+        meta: {
+            name: '56+6 '
+
+        }
     }
 ]
 

@@ -19,9 +19,17 @@ import vueQuillEditor from 'vue-quill-editor';
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.snow.css';
 import 'quill/dist/quill.bubble.css';
-
+import dev from './config/dev.config';
+import pro from './config/product.config';
 Vue.use(vueQuillEditor);
-
+let base = [];
+if (process.env.VUE_APP_CURRENTMODE == 'dev'){
+  base = dev;
+}else{
+  base = pro;
+}
+console.log(process.env)
+console.log(base,11);
 
 Vue.use(ElementUI);
 new Vue({
@@ -90,7 +98,7 @@ router.afterEach((to, from) => {
 
 
 })
-console.log(routekey)
+
 // router.afterEach((to, from) => {
 //   // console.log(to,from)
 //   // console.log(to,111)

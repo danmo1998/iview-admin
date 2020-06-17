@@ -34,7 +34,7 @@
       <div style="background: #363e4f;position: absolute;height: 100%;top:0">
         <el-row class="tac" style="width:240px">
         <el-col>
-    <h5>自定义颜色</h5>
+    <h5 style="color: #fff">自定义后台框架</h5>
     <el-menu
           default-active="2"
           class="el-menu-vertical-demo"
@@ -98,12 +98,14 @@
       <router-link to="/about3">about3</router-link><br>
       <router-link to="/home">home</router-link><br>
       <router-link to="/about?a=2">abouta=2</router-link><br>
+      <router-link to="/cs">测试点击事件</router-link><br>
       <router-link :to="{name:'ceshi2',params:{ids:1222,name:'zhangsan'}}">ceshi=2</router-link><br>
   </div>
 </template>
 <script>
 import Vue from "vue";
 import about2 from "@/views/About";
+import * as math from 'mathjs'
 export default {
   data () {
        return {
@@ -120,7 +122,8 @@ export default {
           content: 'Tab 2 content'
         }],
         tabIndex: 2,
-        a:{}
+        a:{},
+		   shuju:[1,2,3,4,5,6,7,8,9]
       };
 
   },
@@ -221,9 +224,17 @@ export default {
 
           // this.editableTabs = tabs.filter(tab => tab.name !== targetName);
         }
-      }
+      },
+        printFn(value) {
+			const precision = 14
+			return Number(math.format(value, precision))
+		}
     },
     created(){
+      console.log(this.shuju.filter((res)=>{
+          return res<8&&res>3
+      }),123)
+      console.log(this.printFn(1.111111111111*100000))
       this.router1 = this.$route;
       this.router2 = ()=> import('@/views/About.vue');
       var arr = {
