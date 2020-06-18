@@ -79,6 +79,30 @@ const routes = [
             name: '56+6 '
 
         }
+    },
+    {
+        path: '/ck',
+        name: 'ck',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "about" */ '../views/clickoo.vue'),
+        meta: {
+            name: '点击事件测试'
+
+        }
+    },
+    {
+        path: '/table',
+        name: 'table',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "about" */ '../views/table.vue'),
+        meta: {
+            name: 'table测试'
+
+        }
     }
 ]
 
